@@ -7,8 +7,11 @@
 </head>
 <body>
     <script>
-        numeros = [2,4,6,8,10,12,14,16,18,20]
+        numeros = []
 
+        for (let i=2; i<=20; i+=2) {
+            numeros.push(i)
+        }
         for (let i = 0; i < numeros.length; i++) {
             console.log(numeros[i])
         }

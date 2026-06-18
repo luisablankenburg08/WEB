@@ -8,10 +8,16 @@
 <body>
     <script>
         numeros = [23, 45, 67, 12, 89, 34]
+
         var soma = 0
         for (let i = 0; i < numeros.length; i++) {
             soma += numeros[i];
         }
+        document.write ("Os números são: <br> ")
+
+        numeros.forEach(function(item) {
+            document.write (item, "<br>")
+        })
         document.write("A soma dos números é: ", soma)
     </script>
 </body>
