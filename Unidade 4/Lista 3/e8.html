@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 - Lista 3</title>
+</head>
+<body>
+    <script>
+        qtde = parseInt(prompt("Digite a quantidade de cidades que deseja cadastrar: "))
+        cidades = []
+        for (let i = 0; i < qtde; i++) {
+            var cidade = prompt("Digite a cidade: ")
+            cidades.push(cidade)
+        }
+
+        for (let i = 0; i < cidades.length; i++) {
+            document.write(cidades[i], "<br>")
+        }
+
+        document.write("A primira cidade cadastrada foi: ", cidades.shift(), "<br>")
+        document.write("A última cidade cadastrada foi: ", cidades.pop(), "<br>")
+
+    </script>
+</body>
+</html>

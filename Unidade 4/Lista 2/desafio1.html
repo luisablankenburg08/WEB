@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 - Lista 2</title>
+</head>
+<body>
+    <script>
+
+        let num = Math.floor(Math.random() * 100); 
+
+        while (true){
+            var tentativa = parseInt(prompt("Tente adivinhar o valor: "))
+            if (tentativa != num) {
+                if (tentativa < num) {
+                    alert("O número é maior")
+                }
+                else if (tentativa > num) {
+                    alert("O número é menor")
+                } 
+            }
+            else {break}
+        }
+        alert("Você acertou! O número é: " + num)
+
+    </script>
+</body>
+</html>

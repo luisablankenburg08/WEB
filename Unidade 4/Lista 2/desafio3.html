@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 - Lista 2</title>
+</head>
+<body>
+    <script>
+
+        var frase = prompt("Escreva uma frase: ")
+        var vogais = 0
+        var lista_vogais = ['a', 'e', 'i', 'o', 'u']
+        var consoantes = 0
+        
+        var frase_separada = frase.split("");
+
+        for (let i = 0; i < frase_separada.length; i++) {
+            if (lista_vogais.includes(frase_separada[i])) {
+                vogais += 1
+            }
+            else {
+                consoantes +=1
+            }
+        }
+        document.write("Vogais: "+ vogais + "<br> Consoantes: " + consoantes)
+
+    </script>
+</body>
+</html>

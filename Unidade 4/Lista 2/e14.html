@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 - Lista 2</title>
+</head>
+<body>
+    <script>
+        var valor = parseInt(prompt("Digite o valor a ser depositado mensalmente: "))
+        var acumulo = 0;
+        for (let i = 1; i<=24; i++) {
+            acumulo += valor + (acumulo*0.005)
+        };
+        document.write('O valor final é: ', acumulo.toFixed(2))
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 - Lista 2</title>
+</head>
+<body>
+    <script>
+        var qtde = parseInt(prompt("Digite a quantidade de notas: "))
+        var somador = 0;
+        for (let i = 1; i<=qtde; i++) {
+            let soma = parseFloat(prompt(`Digite a nota ${i}: `));
+            somador +=soma;
+        };
+        document.write('Sua média aritmética é: ', somador/qtde)
+        if ((somador/qtde) >=6) {
+            document.write(" <br> Aprovado")
+        } else {
+            document.write(" <br> Reprovado")
+
+        }
+    </script>
+</body>
+</html>

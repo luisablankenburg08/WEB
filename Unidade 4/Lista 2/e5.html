@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 - Lista 2</title>
+</head>
+<body>
+    <script>
+        var nota=parseInt(prompt("Digite sua nota final (0 a 10): "))
+    
+        switch (nota) {
+            case 0:
+            case 1:
+            case 2:
+                document.write("Classificação: F");
+                break;
+            case 3:
+            case 4:
+                document.write("Classificação: D");
+                break;
+            case 5:
+            case 6:
+                document.write("Classificação: C");
+                break;
+            case 7:
+            case 8:
+                document.write("Classificação: B");
+                break;
+            case 9:
+            case 10:
+                document.write("Classificação: A");
+                break;
+            default:
+                document.write("Nota inválida!");
+                break;
+        }
+        
+    </script>
+</body>
+</html>

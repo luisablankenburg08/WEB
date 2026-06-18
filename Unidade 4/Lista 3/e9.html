@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 - Lista 3</title>
+</head>
+<body>
+    <script>
+        var qtde = parseInt(prompt("Digite a quantidade de notas que possue: "))
+        var notas = []
+        var maior = 0
+        var soma = 0
+        var menor = 10
+
+        for (let i = 0; i < qtde; i++) {
+            var nota = parseFloat(prompt("Digite a nota: "))
+            notas.push(nota)
+        }
+
+        for (let i = 0; i < notas.length; i++) {
+            if (notas[i] > maior) {
+                maior = notas[i]
+            }
+
+            if (notas[i] < menor) {
+                menor = notas[i]
+            }
+
+            soma += notas[i];
+        }
+
+        document.write("A maior nota é: ", maior, "<br>")
+        document.write("A menor nota é: ", menor, "<br>")
+        document.write("A média das notas é: ", soma / qtde, "<br>")
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 - Lista 2</title>
+</head>
+<body>
+    <script>
+        var idade=parseInt(prompt("Digite sua idade: "))
+    
+        switch (true) {
+            case (idade >= 0 && idade <= 12): 
+                document.write("Criança");
+                break;
+            case (idade >= 13 && idade <= 17):
+                document.write("Adolescente");
+                break;
+            case (idade >= 18 && idade <= 59):
+                document.write("Adulto");
+                break;
+            case (idade >= 60):
+                document.write("Idoso");
+                break;
+        }
+        
+    </script>
+</body>
+</html>

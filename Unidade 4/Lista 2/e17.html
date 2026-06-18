@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 - Lista 2</title>
+</head>
+<body>
+    <script>
+        var sair = false
+
+        while (sair == false) {
+            var titulo = 'VITRINE DA CANTINA'
+            var codigos ='\n\nCÓD: 1, Produto: Suco;  Valor: R$6,00; \nCÓD: 2, Produto: Pão de Queijo;  Valor: R$3,00; \n CÓD: 3, Produto: Pastel;  Valor: R$7,00; \nCÓD: 4, Produto: Salada de Frutas;  Valor: R$9,00; \nCÓD: 5, Produto: Café com leite;  Valor: R$3,50; \nCÓD: 6, Produto: Capuccino;  Valor: R$4,50; \nCÓD: 7, Produto: Iogurte;  Valor: R$6,50; \nCÓD: 8, Produto: Água;  Valor: R$2,50; \n'
+
+            var cod = parseInt(prompt(`${titulo} ${codigos} \nDigite o código do produto: `));
+            var qtde = parseInt(prompt('Digite a quantidade do produto: '));
+
+            if (cod == 0 || qtde == 0) {
+                sair = false
+            }
+            else {
+                sair=true
+            }
+        }
+
+        var produto = "";
+        var preco = 0
+
+        if (sair==true) {
+            switch (cod) {
+                case 1: 
+                    produto = "Suco";
+                    preco = 6.00;
+                    document.write("Produto:", produto, "<br>Valor total: ", preco*qtde);
+                    break
+
+                case 2:
+                    produto = "Pão de Queijo";
+                    preco = 3.00;
+                    document.write("Produto:", produto, "<br>Valor total: ", preco*qtde);
+                    break
+
+                case 3:
+                    produto = "Pastel";
+                    preco = 7.00;
+                    document.write("Produto:", produto, "<br>Valor total: ", preco*qtde);
+                    break
+
+                case 4:
+                    produto = "Salada de Frutas";
+                    preco = 9.00;
+                    document.write("Produto: ", produto, "<br>Valor total: ", preco*qtde);
+                    break
+
+                case 5: 
+                    produto = "Café com leite";
+                    preco = 3.50;
+                    document.write("Produto: ", produto, "<br>Valor total: ", preco*qtde);
+                    break
+
+                case 6:
+                    produto = "Capuccino";
+                    preco = 4.50;
+                    document.write("Produto: ", produto, "<br>Valor total: ", preco*qtde);
+                    break
+
+                case 7:
+                    produto = "Iogurte";
+                    preco = 6.50;
+                    document.write("Produto: ", produto, "<br>Valor total: ", preco*qtde);
+                    break
+
+                case 8:
+                    produto = "Água";
+                    preco = 2.50;
+                    document.write("Produto: ", produto, " ,<br>Valor total: ", preco*qtde);
+                    break
+            }
+        }
+    </script>
+</body>
+</html>
