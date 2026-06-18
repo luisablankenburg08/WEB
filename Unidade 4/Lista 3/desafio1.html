@@ -16,30 +16,6 @@
 
         var jogador = true
 
-        function verificarVitoria () {
-
-            // VERIFICA LINHAS
-            if (matriz[0][0] == matriz[0][1] && matriz[0][1] ==  matriz[0][2]) {
-                document.write('Vitória!') }
-
-            else if (matriz[1][0] == matriz[1][1] && matriz[1][1] ==  matriz[1][2]) {
-                document.write('Vitória!') }
-
-            else if (matriz[2][0] == matriz[2][1] && matriz[2][1] ==  matriz[2][2]) {
-                document.write('Vitória!') }
-
-            //VERIFICA COLUNAS
-            if (matriz[linha][coluna] == matriz[linha+1][coluna] && matriz[linha+1][coluna] == matriz[linha+2][coluna]) {
-                document.write('Vitória!') }
-
-            else if (matriz[linha][coluna+1] == matriz[linha+1][coluna+1] && matriz[linha+1][coluna+1] == matriz[linha+2][coluna+1]) {
-                document.write('Vitória!') }
-
-            else if (matriz[linha][coluna+2] == matriz[linha+1][coluna+2] && matriz[linha+1][coluna+2] == matriz[linha+2][coluna+2]) {
-                document.write('Vitória!') }
-
-            }
-        
         function renderizar() {
             html = ''
             html += 'JOGO DA VELHA <br>'
@@ -69,6 +45,38 @@
             document.getElementById('jogo').innerHTML = html;
         }
 
+        function verificarVitoria () {
+
+            // VERIFICA LINHAS
+            if ( (matriz[0][0] == matriz[0][1]) && (matriz[0][1] ==  matriz[0][2]) && (matriz[0][1] != '-') ){
+                document.write('Vitória!') }
+
+            else if (matriz[1][0] == matriz[1][1] && matriz[1][1] ==  matriz[1][2]  && matriz[1][1] != '-') {
+                document.write('Vitória!') }
+
+            else if (matriz[2][0] == matriz[2][1] && matriz[2][1] ==  matriz[2][2] && matriz[2][1]!='-' ){
+                document.write('Vitória!') }
+
+            //VERIFICA COLUNAS
+            if (matriz[0][0] == matriz[1][0] && matriz[1][0] == matriz[2][0] && matriz[1][0]!= '-' ){
+                document.write('Vitória!') }
+
+            else if (matriz[0][1] == matriz[1][1] && matriz[1][1] == matriz[2][1] && matriz[1][1]!='-'){
+                document.write('Vitória!') }
+
+            else if (matriz[0][2] == matriz[1][2] && matriz[1][2] == matriz[2][2] && matriz[1][2]!='-' ){
+                document.write('Vitória!') }
+
+            //VERIFICA DIAGONAIS
+
+            if (matriz[0][0] == matriz[1][1] && matriz[1][1] == matriz[2][2] && matriz[1][1]!= '-' ){
+                document.write('Vitória!')}
+
+            else if (matriz[0][2] == matriz[1][1] && matriz[1][1] == matriz[2][0] && matriz[1][1]!='-'){
+                document.write('Vitória!') }
+
+        }
+
         function desenhar() {
             linha = document.getElementById('linha').value;
             coluna = document.getElementById('coluna').value;
@@ -89,6 +97,7 @@
         }
 
         renderizar()
+
 
     </script>
    
