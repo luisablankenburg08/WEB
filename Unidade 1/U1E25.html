@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U1E25</title>
+    <link type="text/css" href="style.css" rel="stylesheet">
+</head>
+<body>
+
+    <h1 class="textocentralizado azulescuro"> EXERCÍCIO 17</h1>
+    <form method="post">
+    <h2 class="azulescuro"> Cadastro de Produtos</h2>
+    <div>
+        <label for="name">Produto:</label>
+        <input type="text" id="name" required>
+    </div>
+
+    <div>
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" name="desc" required> </textarea>
+    </div>
+
+    <div>
+    <label for="data">Data da compra:</label>
+    <input type="date" id="data" required  />
+    </div>
+
+    <div>
+        <label for="quantidade">Quantidade (5-50):</label>
+        <input type="number" id="quantidade" name="quantidade" min="5" max="50" required />
+    </div>
+
+    <input type="submit" value="Enviar" />
+</form>
+
+
+
+    <h1 class="textocentralizado azulescuro"> EXERCÍCIO 18</h1>
+    <form method="post">
+    <h2 class="azulescuro"> Cadastro de Estudantes para o JIFSC</h2>
+
+    <div>
+        <label for="name">Nome completo:</label>
+        <input type="text" id="name" required>
+    </div>
+
+    <div> 
+        <label for="cpf">CPF:</label>
+        <input type="tel" id="cpf" name="cpf" placeholder="00000000000" maxlength="11" required>
+    </div>
+
+    <div>
+    <label for="data">Data de nascimento:</label>
+    <input type="date" id="data" required  />
+    </div>
+    
+    <div> 
+    <label for="telefone">Telefone:</label>
+    <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999" required>
+    </div>
+
+    <div>
+    <label for="mail">E-mail:</label>
+    <input type="email" id="mail" required />
+    </div>
+    
+    <div>
+        <label for="nomeCurso">Nome do curso:</label>
+        <input type="text" id="nomeCurso" required>
+    </div>
+
+    <div class="radio-container">
+        <label for="name">Modalidade:</label>
+
+
+        <input type="radio" id="individual"  required>
+        <label for="name">Individual</label>
+
+        <input type="radio" id="coletiva"  required>
+        <label for="name">Coletiva</label>
+    </div>
+
+    <div>
+        <label for="ajuda">Ajuda de custo</label>
+        <input class="checkbox-container" type="checkbox" id="ajuda" name="ajudaCusto" />
+    </div>
+    
+    <input type="submit" value="Cadastrar" />
+    <input type="reset" value="Limpar">
+</form>
+
+
+    <h1 class="textocentralizado azulescuro"> EXERCÍCIO 19</h1>
+    <form method="post">
+    <h2 class="azulescuro"> Cadastro de Usuários</h2>
+
+    <div>
+        <label for="name">Nome completo:</label>
+        <input type="text" id="name" required>
+    </div>
+
+    <div>
+        <label for="username">Login:</label>
+        <input type="text" id="username" name="username" />
+    </div>
+
+    <div>
+        <label for="pass">Senha:</label>
+        <input type="password" id="pass" name="password"  />
+    </div>
+
+    <div>
+        <label for="data">Data de nascimento:</label>
+        <input type="date" id="data" required  />
+    </div>
+    
+    <div> 
+        <label for="status">Status:</label>
+        <select id="status" name="status">
+            <option value="fiat">Ativo</option>
+            <option value="ford">Inativo</option>
+        </select>
+    </div>
+
+    <div class="radio-container">
+        <label for="name">Tipo:</label>
+
+        <input type="radio" id="estudante"  required>
+        <label for="name">Estudante</label>
+
+        <input type="radio" id="professor"  required>
+        <label for="name">Professor</label>
+
+        <input type="radio" id="tecnico"  required>
+        <label for="name">Técnico-Administrativo</label>
+       
+    </div>
+
+    <div>
+    <label for="observacoes">Observações:</label>
+    <textarea id="observacoes" name="observacoes" > </textarea>
+    </div>
+
+    <div>
+        <label for="name">Módulo:</label>
+
+
+        <input class="checkbox-container" type="checkbox" id="ensino" name="ensino">
+        <label for="name">Ensino</label>
+        
+        <input class="checkbox-container" type="checkbox" id="pesquisa" name="pesquisa">
+        <label for="name">Pesquisa</label>
+        
+        <input class="checkbox-container" type="checkbox" id="extensao" name="extensao" >
+        <label for="extensao">Extensão</label>
+    
+    </div>
+    <input type="submit" value="Cadastrar" />
+    <input type="reset" value="Limpar">
+</form>
+</body>
+</html>

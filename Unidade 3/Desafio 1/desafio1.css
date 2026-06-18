@@ -1,0 +1,40 @@
+body {
+    background-color:rgb(70,100,70);
+    margin-top: 0px;
+}
+
+.texto {
+    background-color:darkkhaki;
+    margin-left: 200px;
+    margin-right: 200px;
+    font-size: 20px;
+}
+.menu {
+    display: flex;
+    list-style-type: none;
+    gap: 10px;
+    background-color:darkgreen;
+    padding: 10px;
+    position: absolute;
+    top: 50px;  /* 50px do topo da página */
+    left: 200px; /* 20px da esquerda */
+}
+
+.titulo {
+    float: right;
+    padding-right: 50px
+}
+
+.listatexto {
+    list-style-type: none;
+}
+
+.sonnet {
+    float: right;
+    margin-top: 70px;
+}
+
+.textomeio {
+    padding-top: 400px;
+
+}

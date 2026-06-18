@@ -1,0 +1,203 @@
+/*cores */
+.verde {
+  color: green; 
+}
+
+.azulescuro {
+  color: darkblue; 
+}
+
+.ciano {
+  color:aqua; 
+}
+
+.marrom {
+  color: brown; 
+}
+
+.roxo {
+  color: purple; 
+}
+.azulfraco {
+  color: lightblue; 
+}
+
+.amarelo {
+  color: darkgoldenrod; 
+}
+
+.vermelho {
+  color:red; 
+}
+
+.rosa {
+  color: lightpink; 
+}
+
+.laranja {
+  color: orange; 
+}
+
+/* fontes */
+
+.arial {
+font-family: Arial;
+font-weight: 600;
+font-style: normal;
+}
+
+.verdana {
+font-family:Verdana;
+font-weight: 400;
+font-style: normal;
+}
+
+.trebuchet {
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-weight: 1000;
+font-style: italic;
+}
+
+.helvetica {
+font-family: Helvetica;
+font-weight: 700;
+font-style: normal;
+}
+
+.georgia {
+font-family: Georgia;
+font-weight: 800;
+font-style: italic;
+}
+
+.impact {
+font-family: Impact;
+font-weight: bold;
+font-style: normal;
+}
+
+.times {
+font-family:'Times New Roman', Times, serif;
+font-weight: 400;
+font-style: normal;
+}
+
+
+/* centralização de texto */
+.textocentralizado {
+  text-align: center;
+}
+
+/* links */
+
+a {
+background-color: gray;
+color: black; 
+padding: 10px 15px;
+margin-right: 10px; 
+text-decoration:none; 
+border-radius: 5px; 
+transition: 0.3s; 
+}
+
+a:hover { 
+background-color: gainsboro; 
+}
+
+.secao-fullscreen {
+  width: 100%;       
+  height: 100vh;     
+}
+
+/* formulários */
+form {
+width: 350px; 
+margin: auto; 
+font-family: Arial; 
+}
+
+input {
+width: 100%; 
+padding: 8px; 
+margin-bottom: 10px; 
+border: 1px solid #ccc; 
+border-radius: 5px; 
+box-sizing: border-box; 
+}
+/* caixas de texto largas */
+textarea {
+width: 100%; 
+padding: 8px; 
+margin-bottom: 10px; 
+border: 1px solid #ccc; 
+border-radius: 5px; 
+box-sizing: border-box; 
+}
+
+/* caixa de seleção */
+select{
+width: 100%; 
+padding: 8px; 
+margin-bottom: 10px; 
+border: 1px solid #ccc; 
+border-radius: 5px; 
+box-sizing: border-box; 
+}
+
+/* botão selecionado */
+input:focus {
+border-color: green; 
+outline: none; }
+
+textarea:focus {
+border-color: green; 
+outline: none; 
+}
+
+/* botao de cadastrar  */
+input[type="submit"] {
+background-color: darkgreen; 
+border: none; 
+color: white; 
+padding: 10px 20px; 
+text-decoration: none; 
+margin: 4px 2px; 
+cursor: pointer;
+border-radius: 8px; 
+font-size: 16px; 
+}
+
+input[type="submit"]:hover {
+background-color: #45a049;
+}
+
+/* botao de limpar  */
+input[type="reset"] {
+background-color: darkgreen; 
+border: none; 
+color: white; 
+padding: 10px 20px; 
+text-decoration: none; 
+margin: 4px 2px; 
+cursor: pointer; 
+border-radius: 8px; 
+font-size: 16px; 
+}
+
+input[type="reset"]:hover {
+background-color: #45a049;
+}
+
+/* centralizar label com input radio */
+.radio-container {
+  display: flex;                
+  justify-content: center;     
+  align-items: center;          
+  gap: 10px;                    
+  height: 50px;                 
+}
+
+.checkbox-container{
+  width: 13px;
+  
+}
