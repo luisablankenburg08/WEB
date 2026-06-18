@@ -18,17 +18,14 @@
 
         function verificarVitoria () {
 
-            linha = 0
-            coluna = 0      
-            
             // VERIFICA LINHAS
-            if (matriz[linha][coluna] == matriz[linha][coluna+1] && matriz[linha][coluna+1] ==  matriz[linha][coluna+2]) {
+            if (matriz[0][0] == matriz[0][1] && matriz[0][1] ==  matriz[0][2]) {
                 document.write('Vitória!') }
 
-            else if (matriz[linha+1][coluna] == matriz[linha+1][coluna+1]&& matriz[linha+2][coluna+1] == matriz[linha+1][coluna+2]) {
+            else if (matriz[1][0] == matriz[1][1] && matriz[1][1] ==  matriz[1][2]) {
                 document.write('Vitória!') }
 
-            else if (matriz[linha+2][coluna] == matriz[linha+2][coluna+1] && matriz[linha+2][coluna+1]== matriz[linha+2][coluna+2]) {
+            else if (matriz[2][0] == matriz[2][1] && matriz[2][1] ==  matriz[2][2]) {
                 document.write('Vitória!') }
 
             //VERIFICA COLUNAS
