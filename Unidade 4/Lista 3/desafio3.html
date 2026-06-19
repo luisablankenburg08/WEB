@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Unidade 4 - Lista 3</title>
+
+    <style>
+        #jogo {
+            font-family: monospace;
+            white-space: pre;
+            font-size: 1vw;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="jogo"></div>
+    <script>
+        var matriz = [
+            ['O','O','O','O','O','O','O','O','O','O'],
+            ['O','O','O','O','O','O','O','O','O','O'],
+            ['O','O','O','O','O','O','O','O','O','O'],
+            ['O','O','O','O','O','O','O','O','O','O'],
+            ['O','O','O','O','O','O','O','O','O','O'],
+            ['O','O','O','O','O','O','O','O','O','O'],
+            ['O','O','O','O','O','O','O','O','O','O'],
+            ['O','O','O','O','O','O','O','O','O','O'],
+            ['O','O','O','O','O','O','O','O','O','O'],
+            ['O','O','O','O','O','O','O','O','O','O']
+        ]
+        function renderizar() {
+            html = ''
+            html += 'BATALHA NAVAL <br>'
+            html += '<pre>'
+            html +='   |1|2|3|4|5|6|7|8|9|10| \n'
+            html +='    --------------------- \n'
+
+            let i = 1;
+            for (const linha of matriz) {
+                html += '|'+ i + '| |' + linha.join('|') + "| \n";
+                i++;
+            }
+
+            document.getElementById('jogo').innerHTML = html;
+        }
+
+        //EMBARCAÇÕES
+        const porta_aviao = [
+            ['P','P','P','P','P']
+        ]
+
+        const hidroaviao = [
+            ['','H',''],
+            ['H','','H']
+        ]
+
+        const submarino = [
+            ['S']
+        ]
+
+        const cruzador = [
+            ['C','C']
+        ]
+
+        function desenharAleatorio() {
+        }
+        renderizar()
+    </script>
+   
+</body>
+</html>

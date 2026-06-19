@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Unidade 4 - Lista 3</title>
+</head>
+<body>
+    <div id="jogo"></div>
+
+    <script>
+        var matriz = [
+            ['-','-','-'],
+            ['-','-','-'],
+            ['-','-','-']
+        ]
+
+        var jogador = true
+        var jogoAtivo = true
+        var mensagem = ""
+
+        function renderizar() {
+            html = ''
+            html += 'JOGO DA VELHA <br>'
+            html += '<pre>'
+            html +='1|2|3 \n'
+
+            for (const linha of matriz) {
+                html += linha.join('|') + "\n";
+            }
+
+            
+            if (jogoAtivo) {
+                if (jogador == true) {
+                    html += 'Jogador atual: Humano (X) <br>'
+                } else { 
+                    html += 'Jogador atual: Computador (O) <br>'
+                }
+            }
+
+            html += '</pre>'
+            if (jogoAtivo && jogador == true) {
+                html += "<label for='linha'>Escolha a posição da linha:</label>"
+                html +="<input type='number' id='linha' min='1' max='3'></input> <br>"
+
+
+                html += "<label for='coluna'>Escolha a posição da coluna:</label>"
+                html += "<input type='number' id='coluna' min='1' max='3'></input> <br>"
+
+                html += "<button onclick=desenhar()>Desenhar</button> <br>"
+            }
+            else {html += mensagem + '<br>' }
+
+            document.getElementById('jogo').innerHTML = html;
+        }
+
+        function verificarVitoria () {
+            var vitoria = false
+            // VERIFICA LINHAS
+            if ( (matriz[0][0] == matriz[0][1]) && (matriz[0][1] ==  matriz[0][2]) && (matriz[0][1] != '-') ){
+                vitoria = true }
+
+            else if (matriz[1][0] == matriz[1][1] && matriz[1][1] ==  matriz[1][2]  && matriz[1][1] != '-') {
+                vitoria = true }
+
+            else if (matriz[2][0] == matriz[2][1] && matriz[2][1] ==  matriz[2][2] && matriz[2][1]!='-' ){
+                vitoria = true }
+
+            else if (matriz[1][0] == matriz[1][1] && matriz[1][1] ==  matriz[1][2]  && matriz[1][1] != '-') {
+                vitoria = true }
+
+            else if (matriz[2][0] == matriz[2][1] && matriz[2][1] ==  matriz[2][2] && matriz[2][1]!='-' ){
+                vitoria = true }
+
+            //VERIFICA COLUNAS
+            if (matriz[0][0] == matriz[1][0] && matriz[1][0] == matriz[2][0] && matriz[1][0]!= '-' ){
+                vitoria = true }
+
+            else if (matriz[0][1] == matriz[1][1] && matriz[1][1] == matriz[2][1] && matriz[1][1]!='-'){
+                vitoria = true }
+
+            else if (matriz[0][2] == matriz[1][2] && matriz[1][2] == matriz[2][2] && matriz[1][2]!='-' ){
+                vitoria = true }
+
+            //VERIFICA DIAGONAIS
+
+            if (matriz[0][0] == matriz[1][1] && matriz[1][1] == matriz[2][2] && matriz[1][1]!= '-' ){
+                vitoria = true}
+
+            else if (matriz[0][2] == matriz[1][1] && matriz[1][1] == matriz[2][0] && matriz[1][1]!='-'){
+                vitoria = true }
+
+            if (vitoria) {
+                jogoAtivo = false;
+               
+                mensagem = jogador ? "Vitória do Computador (O)!" : "Vitória do Humano (X)!";
+                return true;
+            }
+            return false;
+        }
+
+        function jogadaComputador() {
+            if (!jogoAtivo) return;
+
+            var linha, coluna;
+            var jogadaValida = false;
+
+            while (!jogadaValida) {
+                linha = Math.floor(Math.random() * 3);
+                coluna = Math.floor(Math.random() * 3);
+
+                if (matriz[linha][coluna] == '-') {
+                    jogadaValida = true;
+                }
+            }
+            matriz[linha][coluna] = "O";
+            jogador = true; 
+
+            verificarVitoria();
+            renderizar();
+        }
+
+        function desenhar() {
+            if (!jogoAtivo || !jogador) return;
+
+            var linhaInput = document.getElementById('linha').value;
+            var colunaInput = document.getElementById('coluna').value;
+
+            var l = parseInt(linhaInput) - 1;
+            var c = parseInt(colunaInput) - 1;
+
+            if (matriz[l][c] == '-') {
+                matriz[l][c] = "X";
+                jogador = false;
+                
+                var venceu = verificarVitoria(); 
+                renderizar();                   
+
+                if (!venceu) {                   
+                    setTimeout(jogadaComputador, 500);
+                }
+            }
+        }
+
+        renderizar()
+
+    </script>
+   
+</body>
+</html>

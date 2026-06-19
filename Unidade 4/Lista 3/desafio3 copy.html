@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 - Lista 3 - Batalha Naval</title>
+
+    <style>
+        #jogo {
+            font-family: monospace;
+            white-space: pre;
+            font-size: 1.2vw;
+            text-align: center;
+            margin-top: 20px;
+        }
+        #estatisticas {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="jogo"></div>
+    <div id="estatisticas"></div>
+    <div class="btn-container" id="btn-reiniciar">
+        <button onclick="iniciarJogo()">Jogar Novamente</button>
+    </div>
+
+    <script>
+
+        var matrizJogador = [];
+        var matrizGabarito = [];
+
+        var totalTiros = 0;
+        var tirosCerteiros = 0;
+        var totalPartesNavios = 22; 
+
+        function iniciarJogo() {
+   
+            document.getElementById('btn-reiniciar').style.display = 'none';
+            totalTiros = 0;
+            tirosCerteiros = 0;
+
+            // Inicializar tabuleiros limpos
+            for (let i = 0; i < 10; i++) {
+                matrizJogador[i] = Array(10).fill('O');
+                matrizGabarito[i] = Array(10).fill('O');
+            }
+
+            // Posicionar embarcações do computador automaticamente
+            posicionarEmbarcacao('P', 5, 1); // 1 Porta-Avião (5 blocos)
+            posicionarHidroaviao(2);         // 2 Hidroaviões (formato especial)
+            posicionarEmbarcacao('S', 1, 5); // 5 Submarinos (1 bloco)
+            posicionarEmbarcacao('C', 2, 3); // 3 Cruzadores (2 blocos)
+
+            renderizar();
+            atualizarEstatisticas();
+
+            // Pequeno delay para a renderização inicial antes do prompt
+            setTimeout(darTiro, 100);
+        }
+
+        function renderizar() {
+            let html = '<h2>BATALHA NAVAL</h2>';
+            html += '<pre>';
+            html += '    |1|2|3|4|5|6|7|8|9|10|\n';
+            html += '    ---------------------\n';
+
+            for (let i = 0; i < 10; i++) {
+                let numLinha = (i + 1).toString().padStart(2, ' ');
+                html += '|' + numLinha + '| |' + matrizJogador[i].join('|') + '|\n';
+            }
+            html += '</pre>';
+            document.getElementById('jogo').innerHTML = html;
+        }
+
+        function atualizarEstatisticas() {
+            let porcentagem = totalTiros > 0 ? ((tirosCerteiros / totalTiros) * 100).toFixed(1) : 0;
+            let html = `
+                <p><strong>Total de Tiros:</strong> ${totalTiros}</p>
+                <p><strong>Tiros Certeiros:</strong> ${tirosCerteiros} / ${totalPartesNavios}</p>
+                <p><strong>Aproveitamento:</strong> ${porcentagem}%</p>
+            `;
+            document.getElementById('estatisticas').innerHTML = html;
+        }
+
+        // Função para posicionar navios normais (linha reta: horizontal ou vertical)
+        function posicionarEmbarcacao(letra, tamanho, quantidade) {
+            let posicionados = 0;
+
+            while (posicionados < quantidade) {
+                let horizontal = Math.random() < 0.5;
+                let linha = Math.floor(Math.random() * 10);
+                let coluna = Math.floor(Math.random() * 10);
+
+                let valido = true;
+
+                // Verificar limites e colisões
+                if (horizontal) {
+                    if (coluna + tamanho > 10) valido = false;
+                    else {
+                        for (let c = coluna; c < coluna + tamanho; c++) {
+                            if (matrizGabarito[linha][c] !== 'O') valido = false;
+                        }
+                    }
+                } else {
+                    if (linha + tamanho > 10) valido = false;
+                    else {
+                        for (let l = linha; l < linha + tamanho; l++) {
+                            if (matrizGabarito[l][coluna] !== 'O') valido = false;
+                        }
+                    }
+                }
+
+                // Inserir no gabarito se a posição for válida
+                if (valido) {
+                    if (horizontal) {
+                        for (let c = coluna; c < coluna + tamanho; c++) matrizGabarito[linha][c] = letra;
+                    } else {
+                        for (let l = linha; l < linha + tamanho; l++) matrizGabarito[l][coluna] = letra;
+                    }
+                    posicionados++;
+                }
+            }
+        }
+
+        // Função específica para a geometria do Hidroavião
+        function posicionarHidroaviao(quantidade) {
+            let posicionados = 0;
+
+            while (posicionados < quantidade) {
+                let horizontal = Math.random() < 0.5;
+                let linha = Math.floor(Math.random() * 10);
+                let coluna = Math.floor(Math.random() * 10);
+
+                let coordenadas = [];
+
+                if (horizontal) {
+                    // Formato: . H . (linha) / H . H (linha+1)
+                    if (linha + 1 < 10 && coluna + 2 < 10) {
+                        coordenadas = [
+                            [linha, coluna + 1],
+                            [linha + 1, coluna],
+                            [linha + 1, coluna + 2]
+                        ];
+                    }
+                } else {
+                    // Formato Vertical rotacionado: H . / . H / H .
+                    if (linha + 2 < 10 && coluna + 1 < 10) {
+                        coordenadas = [
+                            [linha, coluna],
+                            [linha + 1, coluna + 1],
+                            [linha + 2, coluna]
+                        ];
+                    }
+                }
+
+                // Verificar colisão
+                if (coordenadas.length > 0) {
+                    let valido = coordenadas.every(([l, c]) => matrizGabarito[l][c] === 'O');
+                    if (valido) {
+                        coordenadas.forEach(([l, c]) => matrizGabarito[l][c] = 'H');
+                        posicionados++;
+                    }
+                }
+            }
+        }
+
+        // Loop de jogadas do usuário
+        function darTiro() {
+            if (tirosCerteiros === totalPartesNavios) return;
+
+            let entradaLinha = prompt("Digite o número da LINHA (1 a 10):");
+            if (entradaLinha === null) return; // Permite cancelar o jogo
+
+            let entradaColuna = prompt("Digite o número da COLUNA (1 a 10):");
+            if (entradaColuna === null) return;
+
+            let l = parseInt(entradaLinha) - 1;
+            let c = parseInt(entradaColuna) - 1;
+
+            // Validação da entrada
+            if (isNaN(l) || isNaN(c) || l < 0 || l > 9 || c < 0 || c > 9) {
+                alert("Coordenadas inválidas! Digite valores entre 1 e 10.");
+                darTiro();
+                return;
+            }
+
+            // Verificar se o jogador já atirou nesta coordenada
+            if (matrizJogador[l][c] !== 'O') {
+                alert("Você já atirou nessa posição! Escolha outra.");
+                darTiro();
+                return;
+            }
+
+            totalTiros++;
+
+            // Verificar se acertou uma embarcação
+            if (matrizGabarito[l][c] !== 'O') {
+                matrizJogador[l][c] = matrizGabarito[l][c]; // Revela o navio atingido
+                tirosCerteiros++;
+                alert(`FOGO! Você acertou um ${obterNomeNavio(matrizGabarito[l][c])}!`);
+            } else {
+                matrizJogador[l][c] = 'X'; // 'X' representa água atingida
+                alert("ÁGUA! Nenhum navio foi atingido.");
+            }
+
+            renderizar();
+            atualizarEstatisticas();
+
+            // Verificar fim do jogo
+            if (tirosCerteiros === totalPartesNavios) {
+                alert(`Parabéns! Você destruiu toda a frota inimiga em ${totalTiros} tiros!`);
+                document.getElementById('btn-reiniciar').style.display = 'block';
+            } else {
+                setTimeout(darTiro, 100);
+            }
+        }
+
+        function obterNomeNavio(letra) {
+            switch(letra) {
+                case 'P': return 'Porta-Avião';
+                case 'H': return 'Hidroavião';
+                case 'S': return 'Submarino';
+                case 'C': return 'Cruzador';
+                default: return 'Navio';
+            }
+        }
+
+        // Iniciar automaticamente ao carregar a página
+        window.onload = iniciarJogo;
+    </script>
+</body>
+</html>
