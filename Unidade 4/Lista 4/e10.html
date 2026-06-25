@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 -Lista 4</title>
+</head>
+<body>
+    <script>
+
+        function verificar(h) {
+
+            if (h.includes(":")) {
+                console.log("Formato válido");
+                return true;
+            } else {
+                console.log("Formato inválido");
+                return false }
+        };
+
+        function formatar(h) {
+            let divisao = h.split(":")
+
+            if (divisao[0] >= 13) {
+                divisao[0] = divisao[0]- 12;
+            } 
+            return divisao[0]+ ":" + divisao[1] + " pm"
+        };
+
+   
+        horario = prompt("Digite um horário (ex: 10:00): ");
+
+        console.log(verificar(horario));
+        console.log(formatar(horario));
+
+            
+
+
+
+    </script>
+</body>
+</html>

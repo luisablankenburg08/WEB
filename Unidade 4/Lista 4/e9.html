@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 -Lista 4</title>
+</head>
+<body>
+    <script>
+
+        function criarMatriz(lin, col,car) {
+            let matriz = [];
+            
+            for (let i = 0; i < lin; i++) {
+                let linha = [];
+
+                for (let j = 0; j < col; j++) {
+                    linha.push(" "); 
+                }
+                matriz.push(linha);
+            }
+            
+            return matriz;
+        };
+
+        function desenhar(lin, col, car, matriz) {
+
+            //linha 1
+            for (let i = 0; i < col; i++) {
+                matriz[0][i] = car
+            }
+
+            // linhas do meio
+            for (let i = 1; i < lin-1; i++) {
+                matriz[i][0] = car
+                matriz[i][col-1] = car
+            };
+
+            //ultima linha
+            for (let j = 0; j < col; j++) {
+                matriz[lin-1][j] = car
+            }
+
+            return (matriz)
+        };
+
+        var linhas = parseInt(prompt(`Digite a quantidade de linhas: `));
+        var colunas = parseInt(prompt(`Digite a quantidade de colunas: `));
+        var caracter = prompt(`Escolha o caracter para desenhar (+, - ou |): `);
+
+        var matrizCriada = criarMatriz(linhas,colunas,caracter)
+
+        var desenho = desenhar(linhas,colunas,caracter,matrizCriada)
+        console.log(desenho.join('\n'))
+
+    </script>
+</body>
+</html>

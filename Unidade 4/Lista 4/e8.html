@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 -Lista 4</title>
+</head>
+<body>
+    <script>
+
+        function verificar(array) {
+
+            if (array.length == 0) {
+                return true
+            } else {
+                return false
+            };
+        };
+
+        function descobrirMaior(array) {
+            let maior = 0
+
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] > maior) {
+                    maior = array[i];
+                };
+            };
+            if (maior != 0) {
+                return maior;
+            } else {
+                return -1
+            };
+            
+        };
+
+        function descobrirMenor(array) {
+            let menor = 0
+            menor = Math.min(...array);
+            if (menor != 0) {
+                return menor;
+            } else {
+                return -1
+            };
+            
+        };
+
+        function valorMedio(array) {
+            let soma = 0
+
+            for (let i = 0; i < array.length; i++) {
+                soma += array[i];
+            };
+
+            if (soma != 0) {
+                return soma/array.length;
+            } else {
+                return -1
+            };
+        };
+
+        lista = [];
+
+        for (j=1; j<6; j++) {
+            valor = parseInt(prompt(`Digite o valor ${j} de 5: `));
+            lista.push(valor);
+        };
+
+        verificacao = verificar(lista);
+        descoberta1 = descobrirMaior(lista);
+        descoberta2 = descobrirMenor(lista);
+        media = valorMedio(lista);
+
+        document.write(`a) A lista está vazia? ${verificacao} <br>`);
+        document.write(`a) Maior valor: ${descoberta1} <br>`);
+        document.write(`a) Menor valor: ${descoberta2} <br>`);
+        document.write(`a) Valor médio: ${media} <br>`);
+
+
+
+    </script>
+</body>
+</html>

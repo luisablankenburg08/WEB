@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 -Lista 4</title>
+</head>
+<body>
+    <script>
+
+        function verificar(d) {
+
+            if (d.includes("/")) {
+                console.log("Formato válido");
+                return true;
+            } else {
+                console.log("Formato inválido");
+                return false }
+        };
+
+        function formatar(d) {
+
+            const unidades = ['primeiro', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove'];
+            const entre = ['dez', 'onze', 'doze', 'treze', 'quatorze', 'quinze', 'dezesseis', 'dezessete', 'dezoito', 'dezenove'];
+            const dezenas = ['vinte', 'trinta', 'quarenta', 'cinquenta', 'sessenta', 'setenta', 'oitenta', 'noventa'];
+            const centena = ['cem'];
+            const milhar = ['dois mil']
+
+
+            let divisao = d.split("/");
+            let dia = divisao[0];
+            let mes = divisao[1];
+            let ano = divisao[2]
+
+            if (dia.includes("01") ) {
+                dia = unidades[0]
+            } else if (dia.includes("02")) {
+                dia = unidades[1]
+            } else if (dia.includes("03")) {
+                dia = unidades[2]
+            }else if (dia.includes("04")) {
+                dia = unidades[3]
+            }else if (dia.includes("05")) {
+                dia = unidades[4]
+            }else if (dia.includes("06")) {
+                dia = unidades[5]
+            }else if (dia.includes("07")) {
+                dia = unidades[6]
+            }else if (dia.includes("08")) {
+                dia = unidades[7]
+            }else if (dia.includes("09")) {
+                dia = unidades[8]
+            }
+
+            return dia + " de" 
+        };
+
+   
+        data = prompt("Digite uma data (ex: 20/12/2002): ");
+
+        console.log(verificar(data));
+        console.log(formatar(data));
+
+            
+
+
+
+    </script>
+</body>
+</html>

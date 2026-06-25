@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 -Lista 4</title>
+</head>
+<body>
+    <script>
+
+        function calcularIdadeNoFuturo(nome, idade, anos) {
+            idadeSomada= idade + anos;
+            document.write(`${nome} terá ${idadeSomada} daqui a ${anos} anos`);
+        };
+
+        var nome = prompt("Digite seu nome: ");
+        var idade = parseInt(prompt("Digite sua idade: "));
+
+        calcularIdadeNoFuturo(nome, idade, 10);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 -Lista 4</title>
+</head>
+<body>
+    <script>
+
+        function volumeCilindro(h,r) {
+            let volume = ((314/100) * r * r * h);
+            return (`O volume aproximado do cilindro é: ${volume.toFixed(2)} `);
+        }
+
+        var altura = parseFloat(prompt("Digite a altura do cilindro: "));
+        var raio = parseFloat(prompt("Digite o raio do cilindro: "));
+
+        document.write(volumeCilindro(altura,raio));
+
+    </script>
+</body>
+</html>
