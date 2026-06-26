@@ -16,20 +16,93 @@
             const centenas = ['cem','duzentos','trezentos','quatrocentos','quinhentos','seiscentos', 'setecentos', 'oitocentos', 'novecentos'];
             const milhares = ['mil', 'dois mil', 'três mil', 'quatro mil', 'cinco mil', 'seis mil', 'sete mil', 'oito mil', 'nove mil', 'dez mil']
 
+    
+            let divisao = v.split(",");
+            let valorRedondo = divisao[0];
+            let centavos = divisao[1]
 
-            let divisao = v.split('');
+            let arrayReais = valorRedondo.split('');
+            let arraycentavos = centavos.split('');
 
-                        
-            return
+            let textoReais = ''
+            let textoCentavos = ''
+
+            let tamanho = arrayReais.length;
+
+            if (tamanho === 4) {
+                textoReais += milhares[parseInt(arrayReais[0]) - 1] + ' ';
+                arrayReais.shift(); 
+                tamanho = arrayReais.length;
+            }
+
+            if (tamanho === 3 && arrayReais[0] !== '0') {
+            if (arrayReais[0] === '1' && arrayReais[1] === '0' && arrayReais[2] === '0') {
+                textoReais += 'cem ';
+            } else {
+                textoReais += centenas[parseInt(arrayReais[0]) - 1] + ' ';
+            }
+            if (arrayReais[1] !== '0' || arrayReais[2] !== '0') 
+                textoReais += 'e ';
+                arrayReais.shift();
+                tamanho = arrayReais.length;
+            } 
+            else if (tamanho === 3) { 
+                arrayReais.shift(); 
+                tamanho = arrayReais.length; 
+            }
+
+            if (tamanho === 2) {
+                if (arrayReais[0] === '1') { 
+                    textoReais += entre[parseInt(arrayReais[1])];
+                } 
+                else {
+                    if (arrayReais[0] !== '0') {
+                        textoReais += dezenas[parseInt(arrayReais[0]) - 2];
+                        if (arrayReais[1] !== '0') {
+                            textoReais += ' e ';
+                        }
+                    }
+                    if (arrayReais[1] !== '0') {
+                        textoReais += unidades[parseInt(arrayReais[1]) - 1];
+                    }
+                }
+            } 
+            else if (tamanho === 1 && arrayReais[0] !== '0') { 
+                textoReais += unidades[parseInt(arrayReais[0]) - 1];
+            }
+
+        
+            if (valorRedondo === '1') {
+                textoReais += ' real';
+            } else if (valorRedondo !== '0') {
+                textoReais += ' reais';
+            }
+
+            if (centavos && centavos !== '00') {
+                if (arraycentavos[0] === '1') {
+                    textoCentavos = entre[parseInt(arraycentavos[1])];
+                } else {
+                    if (arraycentavos[0] !== '0') {
+                        textoCentavos += dezenas[parseInt(arraycentavos[0]) - 2];
+                        if (arraycentavos[1] !== '0') textoCentavos += ' e ';
+                    }
+                    if (arraycentavos[1] !== '0') {
+                        textoCentavos += unidades[parseInt(arraycentavos[1]) - 1];
+                    }
+                }
+                textoCentavos += (centavos === '01') ? ' centavo' : ' centavos';
+            }
+
+            if (textoReais && textoCentavos) {
+                return textoReais + ' e ' + textoCentavos;
+            } else {
+                return textoReais || textoCentavos || 'zero reais';
+            }
         }
-   
-        valor = parseFloat(prompt("Digite um valor de até R$10.000: "));
 
-        console.log(formatar(data));
-
-            
-
-
+        let valor = prompt("Digite um valor de até R$10.000 (use vírgula para centavos): ");
+        console.log(formatar(valor));
+    
 
     </script>
 </body>
