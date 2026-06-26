@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 -Lista 4</title>
+</head>
+<body>
+    <script>
+        var verdade;
+
+        function verdadeOuMentira(frase) {
+
+            verdade = Math.random() >= 0.5;
+
+            if (verdade==true) {
+                verdade = !verdade
+                return  "Verdade!"
+            } else {
+                return "Mentira!"
+            }
+        };
+
+        var afirmacao = prompt("Faça uma afirmação: ")
+
+        document.write(verdadeOuMentira(afirmacao))
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 -Lista 4</title>
+</head>
+<body>
+    <script>
+
+        function criarHeroi(name) {
+            const poderes = ['Invencível', 'Imortal', 'Grandioso', 'Mago', 'Super', 'Voador',];
+            const animais = ['Tigre', 'Leão', 'Tubarão', 'Gorila', 'Crocodilo', 'Rinoceronte'];
+
+            let indiceP = Math.floor(Math.random() * poderes.length);
+            let indiceA = Math.floor(Math.random() * animais.length);
+
+            return `${name}, o ${poderes[indiceP]} ${animais[indiceA]}`
+        };
+        
+        var nome = prompt("Digite um nome: ")
+        document.write(criarHeroi(nome))
+
+
+
+    </script>
+</body>
+</html>

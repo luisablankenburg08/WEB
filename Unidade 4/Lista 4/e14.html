@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 4 -Lista 4</title>
+</head>
+<body>
+    <script>
+
+        function gerarHistoria(name, local, object) {
+
+            let lista = [
+                `${name} foi até ${local} para comprar ${object}`,
+                `${name} se escondeu no(a) ${local} para fugir de ${object}`,
+                `${name} saiu do(a) ${local} para encontrar um(a) ${object}`,
+            ]
+            indice = Math.floor(Math.random() * lista.length)
+            return (lista[indice])
+        };
+
+        var nome = prompt("Digite um nome: ");
+        var lugar = prompt("Digite um lugar: ");
+        var objeto = prompt("Digite um objeto: ");
+
+        document.write(gerarHistoria(nome,lugar,objeto))
+
+    </script>
+</body>
+</html>
