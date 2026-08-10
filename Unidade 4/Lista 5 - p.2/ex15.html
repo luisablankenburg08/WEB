@@ -259,6 +259,7 @@
 
         var avisoCupom = document.getElementById("cupomAplicado")
         var cupom = document.getElementById("cupom")
+        var cep = document.getElementById("cep"); 
 
         var valorAcumulado = 0
         var valorNumericoFrete = 0
@@ -291,19 +292,18 @@
         }
 
         calcularFrete.addEventListener("click", function () {
-            var cep = document.getElementById("cep").value; 
 
-            if (cep.trim() != "" && cep.trim() != "88495000") {
+            if (cep.value.trim() != "" && cep.value.trim() != "88495000") {
                 alert("Frente inválido. Enviamos apenas para Garopaba - SC")
             } else {
                 frete.textContent = 15.00;
                 valorNumericoFrete = 15.00 
-                document.getElementById("cep") = ""
                 
             }
 
             if (valorAcumulado > 0) {
                 totalCarrinho.textContent = valorAcumulado + valorNumericoFrete;
+                cep.value = ""
         }
         })
 
