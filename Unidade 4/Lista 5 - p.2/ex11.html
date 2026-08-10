@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício com Mouseover</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: white;
+        }
+
+        .color-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .color-box {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 16px;
+            color: white;
+            transition: transform 0.2s;
+        }
+
+        .color-box:hover {
+            transform: scale(1.1);
+        }
+
+        #redBox {
+            background-color: red;
+        }
+
+        #greenBox {
+            background-color: green;
+        }
+
+        #blueBox {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="color-container">
+        <div class="color-box" id="redBox">Vermelho</div>
+        <div class="color-box" id="greenBox">Verde</div>
+        <div class="color-box" id="blueBox">Azul</div>
+    </div>
+<script>
+
+    var btnRed = document.getElementById('redBox');
+    var btnGreen = document.getElementById('greenBox');
+    var btnBlue = document.getElementById('blueBox')
+
+    listabotao = [btnRed, btnGreen, btnBlue];
+
+    for (let item of listabotao) {
+        switch (item) {
+            case btnRed:
+                item.addEventListener('mouseover', function() {
+                    document.body.style.backgroundColor = 'red';
+                });
+                item.addEventListener('mouseout', function() {
+                    document.body.style.backgroundColor = 'white';
+                });
+                break;
+            case btnGreen:
+                item.addEventListener('mouseover', function() {
+                    document.body.style.backgroundColor = 'green';
+                });
+                item.addEventListener('mouseout', function() {
+                    document.body.style.backgroundColor = 'white';
+                });
+                break;
+            case btnBlue:
+                item.addEventListener('mouseover', function() {
+                    document.body.style.backgroundColor = 'blue';
+                });
+                item.addEventListener('mouseout', function() {
+                    document.body.style.backgroundColor = 'white';
+                });
+                break;
+        }
+    }
+
+
+</script>
+ </body>
+</html>
