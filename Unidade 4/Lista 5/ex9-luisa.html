@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+        }
+
+        button {
+            width: 100px;
+            height: 100px;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #fff;
+            border: 2px solid #000;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>Jogo da Velha</h1>
+        <div class="board">
+            <button id="btn1"></button>
+            <button id="btn2"></button>
+            <button id="btn3"></button>
+            <button id="btn4"></button>
+            <button id="btn5"></button>
+            <button id="btn6"></button>
+            <button id="btn7"></button>
+            <button id="btn8"></button>
+            <button id="btn9"></button>
+        </div>
+    </div>
+
+    <script>
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var btn3 = document.getElementById("btn3");
+        var btn4 = document.getElementById("btn4");
+        var btn5 = document.getElementById("btn5");
+        var btn6 = document.getElementById("btn6");
+        var btn7 = document.getElementById("btn7");
+        var btn8 = document.getElementById("btn8");
+        var btn9 = document.getElementById("btn9");
+
+        var lista = [btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9]
+      
+        function jogar() {
+
+          let jogador = true;
+
+            lista.forEach(botao => {
+                botao.addEventListener("click", () => {
+                    if (botao.textContent !== "") {
+                        return;
+                    } else {
+                        botao.textContent = jogador ? "O" : "X";
+                        jogador = !jogador;
+                        verificarEmpate();
+                        verificarVencedor();
+                    }
+                });
+            }); 
+
+            function limpar() {
+                lista.forEach(botao => botao.textContent = "");
+                jogador = true;
+                return;
+            };
+
+
+            function verificarEmpate() {
+                var preenchidos = lista.every(botao => botao.textContent !== "");
+                if (preenchidos) {
+                    setTimeout(function() {
+                        alert(`Empate!`);
+                        limpar();
+                    }, 200);
+                };
+                return;
+            };
+
+            function verificarVencedor() {
+                const combinacoes = [
+                    [btn1, btn2, btn3],
+                    [btn4, btn5, btn6],
+                    [btn7, btn8, btn9],
+                    [btn1, btn4, btn7],
+                    [btn2, btn5, btn8],
+                    [btn3, btn6, btn9],
+                    [btn1, btn5, btn9],
+                    [btn3, btn5, btn7]
+                ];
+
+                for (var combinacao of combinacoes) {
+                    const [a, b, c] = combinacao;
+                    if (a.textContent && a.textContent == b.textContent && a.textContent == c.textContent) {
+                        setTimeout(function() {
+                            alert(`Jogador ${a.textContent} venceu!`);
+                            limpar();
+                        }, 200);
+                    };
+                };
+                return;
+            };
+        };
+
+        jogar();
+
+    </script>
+
+</body>
+</html>
