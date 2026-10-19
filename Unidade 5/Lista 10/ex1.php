@@ -14,7 +14,7 @@
     <?php 
     if ($_SERVER["REQUEST_METHOD"] == "GET" && !empty($_GET['nome'])) {
 
-        $nome = $_POST['nome'];
+        $nome = $_GET['nome'];
         echo "<br>Olá, $nome! Seja bem-vindo(a)!";
     }
     
